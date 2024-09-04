@@ -1,5 +1,5 @@
 import React from "react";
 
 export function Auth(props) {
-  return <>App view: {props.children}</>
+  return <div className="bg-[#f1f1f1]">{props.children}</div>
 }
