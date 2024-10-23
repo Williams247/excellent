@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Auth } from "../../layout/auth.tsx";
 import { Card } from "../../components/card/main.tsx";
@@ -9,14 +9,16 @@ import { Button } from "../../components/widgets/button/index.tsx";
 import { loginSchema, loginSchemaType } from "./schema.ts";
 
 export function LoginPage() {
+  const navigate = useNavigate();
+
   const formHook = useForm<loginSchemaType>({
     resolver: zodResolver(loginSchema),
     mode: "onChange",
   });
 
   function loginFunc(event: loginSchemaType) {
-    console.log(event)
-    redirect("/topics")
+    console.log(event);
+    navigate("/lessons");
   }
 
   return (
@@ -42,6 +44,7 @@ export function LoginPage() {
             <div className="mt-4">
               <TextInput
                 label="Password"
+                type="password"
                 placeholder="*******"
                 className="text-sm"
                 handler={formHook}
