@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 import { menus } from "./constant.ts";
 import { Logout } from "../components/icons/logout.tsx";
 
 export function Main(props) {
+  const navigate = useNavigate();
   return (
     <div className="flex h-screen">
       <div
@@ -27,7 +28,7 @@ export function Main(props) {
         </div>
 
         <div>
-          <button className="flex gap-2">
+          <button className="flex gap-2" onClick={() => navigate("/")}>
             <Logout />
             <span className="text-sm">Logout</span>
           </button>
