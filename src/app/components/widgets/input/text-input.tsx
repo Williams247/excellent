@@ -29,13 +29,16 @@ export function TextInput({
 
       <div
         className={twMerge(
-          "rounded-sm border rounded-md mt-1",
+          "border rounded-md mt-1 outline-none",
           className ?? ""
         )}
       >
         <input
           type={type ?? "text"}
-          className="border-none outline-none :focus:border-none :focus:outline-none w-full font-noto-sans-regular"
+          className={twMerge(
+            "w-full font-noto-sans-regular rounded-md text-sm",
+            "border-none focus:outline-none border:border-transparent"
+          )}
           placeholder={placeholder}
           {...handler.register(name)}
         />

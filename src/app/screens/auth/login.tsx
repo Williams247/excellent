@@ -1,4 +1,5 @@
 import React from "react";
+import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,7 +7,13 @@ import { Auth } from "../../layout/auth.tsx";
 import { Card } from "../../components/card/main.tsx";
 import { TextInput } from "../../components/widgets/input/text-input.tsx";
 import { Button } from "../../components/widgets/button/index.tsx";
-import { loginSchema, loginSchemaType } from "./schema.ts";
+
+const loginSchema = z.object({
+  code: z.string().min(10),
+  password: z.string().min(3),
+});
+
+type loginSchemaType = z.infer<typeof loginSchema>;
 
 export function LoginPage() {
   const navigate = useNavigate();

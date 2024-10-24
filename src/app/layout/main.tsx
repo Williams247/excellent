@@ -17,7 +17,7 @@ export function Main(props) {
           <ul>
             {menus.map(({ text, link, Icon }, index) => (
               <Link key={index} to={link}>
-                <li className="mt-4 flex gap-2">
+                <li className="mt-5 flex gap-2">
                   <Icon />
                   <span className="text-sm">{text}</span>
                 </li>
