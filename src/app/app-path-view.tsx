@@ -13,7 +13,7 @@ export function AppPathView() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/lessons" element={<Lessons />} />
         <Route path="/quiz" element={<Quiz />} />
-        <Route path="/modules" element={<Modules />} />
+        <Route path="/modules/:id" element={<Modules />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

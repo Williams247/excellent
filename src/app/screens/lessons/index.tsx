@@ -42,13 +42,13 @@ export function Lessons() {
       </div>
 
       <div className="flex justify-between mt-10 flex-wrap">
-        {data.map(({ title, description }, index) => (
+        {data.map(({ id, title, description }, index) => (
           <Card className="w-[32%] py-2 mt-5" key={index}>
             <p className="text-sm font-[600]">{title}</p>
             <p className="text-sm mt-1">{description}</p>
             <button
               className="text-sm underline mt-2"
-              onClick={() => navigate("/modules")}
+              onClick={() => navigate(`/modules/${id}`)}
             >
               See more...
             </button>
