@@ -2,6 +2,7 @@ import React from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router";
 import { Main } from "../../layout/main.tsx";
 import { TextInput } from "../../components/widgets/input/text-input.tsx";
 import { Lesson } from "../../components/icons/lessons.tsx";
@@ -15,6 +16,8 @@ const searchSchema = z.object({
 type searchSchemaType = z.infer<typeof searchSchema>;
 
 export function Lessons() {
+  const navigate = useNavigate();
+
   const formHook = useForm<searchSchemaType>({
     resolver: zodResolver(searchSchema),
     mode: "onChange",
@@ -43,7 +46,12 @@ export function Lessons() {
           <Card className="w-[32%] py-2 mt-5" key={index}>
             <p className="text-sm font-[600]">{title}</p>
             <p className="text-sm mt-1">{description}</p>
-            <button className="text-sm underline mt-2">See more...</button>
+            <button
+              className="text-sm underline mt-2"
+              onClick={() => navigate("/modules")}
+            >
+              See more...
+            </button>
           </Card>
         ))}
       </div>
